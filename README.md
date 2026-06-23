@@ -1,7 +1,14 @@
-# Macro Studio — by Hamza
+<p align="center">
+  <img src="images/macro-studio-icon.png" width="170" alt="Macro Studio icon">
+</p>
 
-A Windows automation tool built for friends who were tired of TinyTask's limitations.
-Free for anyone to use.
+<h1 align="center">Macro Studio</h1>
+
+<p align="center">
+  <strong>Windows macro automation by Hamza</strong><br>
+  Built for friends who were tired of TinyTask's limitations.<br>
+  Free for anyone to use.
+</p>
 
 ---
 
