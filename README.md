@@ -30,6 +30,30 @@ Key features:
 
 ---
 
+## A look inside
+
+**The full editor** — record clicks, key presses and real mouse movement, then see and fine-tune every step. Recorded mouse paths are even drawn right on the screen, so you can see exactly what was captured and where it starts and ends.
+
+<p align="center"><img src="images/showcase-main.png" width="760" alt="Macro Studio full editor with a recorded mouse path drawn on screen"></p>
+
+**Mini mode** — a tiny, always-on-top toolbar that stays out of your way while you game. Record, play, save and load without the full window in the way.
+
+<p align="center"><img src="images/showcase-mini.png" width="360" alt="Macro Studio Mini compact toolbar"></p>
+
+**Parallel paths & your macro library** — run several action paths at the same time, and keep every macro you've made one click away in the saved list.
+
+<p align="center"><img src="images/showcase-workspace.png" width="500" alt="Parallel paths and the saved-macros library"></p>
+
+**Searchable Action Reference** — every action explained, grouped by type and fully searchable, with the important options highlighted so you can find what you need fast.
+
+<p align="center"><img src="images/showcase-action-reference.png" width="620" alt="Searchable, colour-coded Action Reference"></p>
+
+**Built-in help & update notes** — open the Action Reference, keyboard shortcuts, or a "What's New" card (shown automatically after each update) right from the Help menu.
+
+<p align="center"><img src="images/showcase-help.png" width="340" alt="Help menu"></p>
+
+---
+
 ## How to download & run
 
 ### 1. Download
