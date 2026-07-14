@@ -1,156 +1,123 @@
-<p align="center">
-  <img src="images/macro-studio-icon.png" width="170" alt="Macro Studio icon">
-</p>
+<div align="center">
+  <img src="branding/macro_studio_icon_source.png" width="112" alt="Macro Studio icon">
+  <h1>Macro Studio</h1>
+  <p><strong>Record simple. Build advanced.</strong></p>
+  <p>A powerful Windows macro recorder and visual automation studio made by Hamza.</p>
 
-<h1 align="center">Macro Studio</h1>
+  [![Latest release](https://img.shields.io/github/v/release/Hamza122nr2/macro-studio-updates?style=for-the-badge&color=18A8E6)](https://github.com/Hamza122nr2/macro-studio-updates/releases/latest)
+  ![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-18A8E6?style=for-the-badge&logo=windows)
+  ![Free to use](https://img.shields.io/badge/Free-to%20use-22C98A?style=for-the-badge)
+</div>
 
-<p align="center">
-  <strong>Windows macro automation by Hamza</strong><br>
-  Built for friends who were tired of TinyTask's limitations.<br>
-  Free for anyone to use.
-</p>
+![Macro Studio full editor](readme_images/showcase-main-editor.jpg)
 
----
+Macro Studio can be a quick recorder like TinyTask, or a complete visual automation system with parallel paths, image and color detection, loadouts, jumps, debugging, Discord control, and custom playback interfaces.
 
-## What it does
+## Highlights
 
-Macro Studio lets you record and replay anything you do on screen — clicks, key presses, mouse movement, image detection, color detection, multi-step branching logic, and more. It's designed to feel simple on the surface while giving you a lot of control when you need it.
+- **Three recording styles** ? Smart, Exact, and Raw mouse input for games that lock or hide the cursor.
+- **Parallel paths** ? run independent automation paths at the same time and jump between them.
+- **Image + color detection** ? capture an image or pixel, restrict the search area, tune match accuracy and polling speed, then branch or jump.
+- **Visual organization** ? folders, nested loadouts, collapse states, multi-select, drag/drop, copy/paste, undo/redo, and stable locked targets.
+- **Create UI** ? build a separate polished control window from your existing macro without changing its actions or playback order.
+- **Debugger mode** ? inspect live steps, detection results, paths, loops, and step through a macro when needed.
+- **Discord tools** ? webhooks and optional bot commands for remote control, status, screenshots, and notifications.
+- **Mini mode** ? a compact recorder/player when the full editor is more than you need.
+- **Resolution-aware playback** ? recorded positions can scale to another display resolution.
+- **Recovery and updates** ? automatic crash recovery plus an in-app update flow.
 
-**Recording & playback**
-- Smart and exact recording modes (plus raw movement capture for in-game camera control)
-- Parallel action paths that run at the same time
-- Loop counts per macro and per path, playback speed control, random delays
-- Custom play/record hotkeys — any key or combo, not just F-keys
-- Resolution scaling — macros recorded on one screen size adjust automatically on another
+## Create UI: turn a macro into an app-like controller
 
-**Seeing the screen**
-- Image detection and color detection with branching ("if found, go to step X")
-- Read text (OCR) — read a counter, wave number, or any on-screen text with Windows' built-in OCR and branch on what it says
-- Detect window — branch on which app/window is focused
-- Built-in Debugger Mode to see exactly what image detection sees
+Create UI is a visual playback layer for the same macro. It does **not** copy, rearrange, or replace actions. Buttons use the macro's existing stable action IDs, loadout controls change the existing loadouts, and Start runs the original macro normally.
 
-**Logic & organization**
-- Jumps between steps and paths — including jump limits ("repeat this section 10 times, then move on") and random jumps
-- Chain macros together — a "Play another macro" step runs a whole saved macro, then continues
-- Wait for a fixed time, until a clock time (daily resets!), or a random range
-- Folders to group steps — with optional encryption, so shared macros keep their contents password-protected
-- Loadouts — bundle alternative setups into one step and switch which one plays
+![Create UI demo](readme_images/create-ui-demo.gif)
 
-**Quality of life**
-- Mini compact mode and full editor mode
-- Draw menu (Ctrl+G) — mark spots on screen while you set up a macro; marks are click-through and see-through
-- Discord control & notifications — see the section below
-- Searchable, color-coded Action Reference built into the Help menu
-- Auto-updates from GitHub — just click Update when prompted
-- Undo / redo, drag-to-reorder, multi-select, copy/paste
-- Crash recovery — never lose unsaved work
+| Design it visually | Use it as the playback controller |
+|---|---|
+| ![Create UI designer](readme_images/showcase-create-ui-designer.jpg) | ![Create UI runtime](readme_images/showcase-create-ui-runtime.jpg) |
 
----
+| Nested loadout controls | Live playback information |
+|---|---|
+| ![Create UI modes page](readme_images/showcase-create-ui-modes.jpg) | ![Create UI monitor page](readme_images/showcase-create-ui-monitor.jpg) |
 
-## A look inside
+The designer includes:
 
-**The full editor** — record clicks, key presses and real mouse movement, then see and fine-tune every step. Recorded mouse paths are even drawn right on the screen, so you can see exactly what was captured and where it starts and ends.
+- named pages with their own icon and accent;
+- sections, labels, action buttons, Start buttons, images, built-in icons, and hover tooltips;
+- live status, current action, active path, elapsed time, and loop information;
+- nested loadouts with choices, buttons, tiles, or dropdown styles;
+- compact templates and full color themes;
+- multi-select, group drag, duplicate, internal copy/paste, alignment, layers, and smart snap guides;
+- custom window presets including compact, wide, and tall layouts.
 
-<p align="center"><img src="images/showcase-main.png" width="760" alt="Macro Studio full editor with a recorded mouse path drawn on screen"></p>
+The normal global Play/Stop hotkey continues to work while the generated controller is focused. Stopping playback leaves the controller open so it can remain the macro's main interface.
 
-**Mini mode** — a tiny, always-on-top toolbar that stays out of your way while you game. Record, play, save and load without the full window in the way.
+## Download
 
-<p align="center"><img src="images/showcase-mini.png" width="360" alt="Macro Studio Mini compact toolbar"></p>
+1. Open the [latest release](https://github.com/Hamza122nr2/macro-studio-updates/releases/latest).
+2. Download the Windows ZIP.
+3. Follow the one-time **Unblock before extracting** steps below.
+4. Open the extracted folder and run `MacroStudio.exe`.
 
-**Parallel paths & your macro library** — run several action paths at the same time, and keep every macro you've made one click away in the saved list.
+Macro Studio is portable: there is no installer. Updates can be applied from inside the app.
 
-<p align="center"><img src="images/showcase-workspace.png" width="500" alt="Parallel paths and the saved-macros library"></p>
+## Important: unblock the ZIP before extracting
 
-**Searchable Action Reference** — every action explained, grouped by type and fully searchable, with the important options highlighted so you can find what you need fast.
+Windows marks files downloaded from the internet. If the ZIP is extracted while still blocked, Windows may show warnings for files inside it. Unblock the ZIP first.
 
-<p align="center"><img src="images/showcase-action-reference.png" width="620" alt="Searchable, colour-coded Action Reference"></p>
+### 1. Create a permanent folder and move the ZIP there
 
-**Built-in help & update notes** — open the Action Reference, keyboard shortcuts, or a "What's New" card (shown automatically after each update) right from the Help menu.
+Create the folder where you want to keep Macro Studio, move the downloaded ZIP into it, then right-click the ZIP and choose **Properties**.
 
-<p align="center"><img src="images/showcase-help.png" width="340" alt="Help menu"></p>
+![Right-click and open Properties](readme_images/1-right-click-properties.png)
 
----
+### 2. Find the Unblock option
 
-## Control it from Discord
+At the bottom of the General tab, the box initially looks like this:
 
-Macro Studio has a Discord bot built in — nothing to host, no server to run. You create a free bot in Discord's developer portal, paste its token into Macro Studio's settings, and from that moment you can control your macro **from your phone or any device with Discord**, even while you're away from the PC.
+![Unblock unticked](readme_images/2-unblock-unticked.png)
 
-**What you can do remotely:**
-- `play` / `stop` / `pause` / `resume` / `restart` — full playback control
-- `jump 2.5` — send the running macro to any step in any path
-- `speed 2` / `loop 50` / `loopdelay 3s` — change playback settings live
-- `status` — see what's running, which step it's on, loop progress, and uptime
-- `actions` / `actions path 2` — list the macro's steps right in Discord
-- `shot` — get an instant screenshot of the PC
-- `autoshot 5m` — receive a screenshot every few seconds/minutes/hours so you can keep an eye on a farm overnight (it never interrupts the macro)
-- announce mode — get a message automatically whenever playback ends
+### 3. Tick Unblock
 
-**Security:** the bot only listens in the one channel you choose, and only to *your* Discord account (your user ID). The token is stored locally on your PC and never leaves it.
+![Unblock ticked](readme_images/3-unblock-ticked.png)
 
-**Setup** takes about two minutes: Settings → Discord bot → paste your bot token, channel ID and user ID. There's a built-in "Invite bot to server" button and a "Test connection" button, and `!ms help` in Discord lists every command.
+### 4. Click Apply, then OK
 
-Separately from the bot, there's also a **Send Discord Message action** — a normal macro step that fires a webhook message (optionally with a screenshot of the screen or a region) whenever playback reaches it. Perfect for "boss killed, run 34 done" progress pings without enabling the bot at all.
+After Apply, Windows removes the internet block from the ZIP.
 
----
+![Properties after Apply](readme_images/4-after-apply.png)
 
-## How to download & run
+### 5. Extract everything
 
-### 1. Download
+Right-click the ZIP again, choose **Extract All**, and finish extraction.
 
-Go to the **[Releases page](https://github.com/Hamza122nr2/macro-studio-updates/releases)** and download the latest `Macro_Studio-By_Hamza_vXX.XX_windows.zip` file (under **Assets**).
+![Extract All](readme_images/5-extract-all.png)
 
-### 2. Move the ZIP where you want the app to live
+After extraction:
 
-Before extracting, **move the downloaded ZIP** to the folder where you want Macro Studio to stay (for example a "Macro Studio" folder in Documents). Whatever folder you extract it in is where it lives — so pick the spot now.
-
-### 3. Make it trusted (important!)
-
-Because the app isn't "code-signed" (a certificate that costs money every year), Windows marks files downloaded from the internet as "blocked" and may show a scary warning. **It's a false positive** — Macro Studio isn't a virus; Windows is just cautious about apps from publishers it doesn't recognize, and an unsigned app always triggers this. Unblocking the ZIP **before** extracting removes that warning completely, and you won't get an antivirus pop-up afterward.
-
-**Right-click the ZIP file and choose `Properties`:**
-
-![Right-click the ZIP and choose Properties](images/1-right-click-properties.png)
-
-At the bottom of the Properties window you'll see a **Security** line that says *"This file came from another computer and might be blocked…"* with an **Unblock** checkbox — unticked by default:
-
-![Unblock checkbox, unticked](images/2-unblock-unticked.png)
-
-**Tick the Unblock checkbox:**
-
-![Unblock checkbox, ticked](images/3-unblock-ticked.png)
-
-Click **Apply**, then **OK**. The Security line disappears — that means it worked and the file is now trusted:
-
-![After clicking Apply the Security line is gone](images/4-after-apply.png)
-
-### 4. Extract
-
-Now **right-click the ZIP again** and choose **`Extract All…`**:
-
-![Right-click and choose Extract All](images/5-extract-all.png)
-
-### 5. Run it
-
-Open the extracted folder and run **`MacroStudio.exe`**. No install needed.
-
-- You can now **delete the leftover `.zip` file** — you don't need it anymore.
-- **Tip:** right-click `MacroStudio.exe` → **Pin to taskbar** so it's one click to open next time.
-
-> If Windows ever still shows a blue **"Windows protected your PC"** popup, click **More info → Run anyway**. (You normally won't see this if you unblocked the ZIP first.)
-
----
+- delete the downloaded ZIP;
+- keep the extracted Macro Studio folder in its permanent location;
+- optionally right-click `MacroStudio.exe` and pin it to Start or the taskbar.
 
 ## Default hotkeys
 
-- **F6** — Play / Stop
-- **F8** — Record / Stop recording
-- **Ctrl+G** — Draw menu (mark spots on screen)
+| Action | Default |
+|---|---:|
+| Play / Stop | `F6` |
+| Stop | `F7` |
+| Record | `F8` |
+| Save | `Ctrl + S` |
 
-Both hotkeys are changeable — pick a preset from the dropdown or choose **custom…** and press any key or combo you like.
+Hotkeys, recording mode, playback speed, appearance, Discord controls, sounds, and other behavior can be changed in Settings.
 
----
+## Source and safety
 
-## Found a bug or have a suggestion?
+Macro Studio is **free to use**, but its source code is private. This public repository contains release builds, release notes, documentation, and issue tracking?not the application source.
 
-Open an issue on GitHub and I'll take a look:
-**https://github.com/Hamza122nr2/macro-studio-updates/issues**
+The Windows build is currently not signed with a paid code-signing certificate, so Windows reputation warnings can still appear on a fresh download. The Unblock steps above prevent the downloaded ZIP marker from being copied into the extracted files.
+
+## Feedback
+
+Found a bug or have an idea? [Open a GitHub issue](https://github.com/Hamza122nr2/macro-studio-updates/issues).
+
+See [CHANGELOG.md](CHANGELOG.md) for the complete release history.
