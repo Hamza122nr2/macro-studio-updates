@@ -1,34 +1,77 @@
 <div align="center">
-  <img src="branding/macro_studio_icon_source.png" width="112" alt="Macro Studio icon">
+  <img src="branding/macro_studio_icon_github.png" width="112" alt="Macro Studio icon">
   <h1>Macro Studio</h1>
   <p><strong>Record simple. Build advanced.</strong></p>
-  <p>A powerful Windows macro recorder and visual automation studio made by Hamza.</p>
+  <p>A Windows macro recorder and visual automation studio made by Hamza.</p>
 
   [![Latest release](https://img.shields.io/github/v/release/Hamza122nr2/macro-studio-updates?style=for-the-badge&color=18A8E6)](https://github.com/Hamza122nr2/macro-studio-updates/releases/latest)
   ![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-18A8E6?style=for-the-badge&logo=windows)
   ![Free to use](https://img.shields.io/badge/Free-to%20use-22C98A?style=for-the-badge)
 </div>
 
+## Start here: Mini mode
+
+<div align="center">
+  <img src="readme_images/showcase-mini.png" width="430" alt="Macro Studio Mini mode">
+</div>
+
+Mini keeps the everyday workflow small: open a macro, record, save, and play. Preferences contain playback speed, continuous playback, hotkeys, always-on-top, hide-on-play, drawing, and the switch to the full editor.
+
+Mini and the full editor use the **same macro**. Start small, then open the full editor only when you want to inspect or build more advanced behavior.
+
+## How it works
+
+| 1. Record | 2. Edit | 3. Add logic | 4. Run |
+|---|---|---|---|
+| Capture mouse movement, clicks, keys, text, and timing. | Review steps and adjust delays, positions, keys, or playback settings. | Add image/color detection, waits, jumps, paths, folders, or loadouts. | Press the play hotkey, use Mini, or monitor the run in the full editor. |
+
+You can use Macro Studio as a straightforward recorder, or keep extending the same macro into a multi-path automation.
+
+## Full editor
+
 ![Macro Studio full editor](readme_images/showcase-main-editor.jpg)
 
-Macro Studio can be a quick recorder like TinyTask, or a complete visual automation system with parallel paths, image and color detection, loadouts, jumps, debugging, Discord control, and custom playback interfaces.
+The full editor shows the actual order of actions and gives direct access to the main action groups:
 
-## Highlights
+- **Mouse** — move, click, scroll, drag, and relative movement.
+- **Text / Key** — key presses, key holds, hotkeys, and instant or timed text.
+- **Wait** — delays and wait-until conditions.
+- **Detect** — image/pixel/color detection, OCR, and screen-aware branching.
+- **Window** — find, focus, restore, or switch windows.
+- **Misc** — folders, loadouts, Discord messages, macro chaining, and Create UI.
+- **Paths** — parallel paths and jumps between actions or paths.
 
-- **Three recording styles** ? Smart, Exact, and Raw mouse input for games that lock or hide the cursor.
-- **Parallel paths** ? run independent automation paths at the same time and jump between them.
-- **Image + color detection** ? capture an image or pixel, restrict the search area, tune match accuracy and polling speed, then branch or jump.
-- **Visual organization** ? folders, nested loadouts, collapse states, multi-select, drag/drop, copy/paste, undo/redo, and stable locked targets.
-- **Create UI** ? build a separate polished control window from your existing macro without changing its actions or playback order.
-- **Debugger mode** ? inspect live steps, detection results, paths, loops, and step through a macro when needed.
-- **Discord tools** ? webhooks and optional bot commands for remote control, status, screenshots, and notifications.
-- **Mini mode** ? a compact recorder/player when the full editor is more than you need.
-- **Resolution-aware playback** ? recorded positions can scale to another display resolution.
-- **Recovery and updates** ? automatic crash recovery plus an in-app update flow.
+Actions stay visible in one numbered timeline. Folders organize the list without changing playback order, while locked jump targets keep pointing to the intended action when groups are copied or moved.
 
-## Create UI: turn a macro into an app-like controller
+## Image and color detection
 
-Create UI is a visual playback layer for the same macro. It does **not** copy, rearrange, or replace actions. Buttons use the macro's existing stable action IDs, loadout controls change the existing loadouts, and Start runs the original macro normally.
+<div align="center">
+  <img src="readme_images/showcase-image-detection.png" width="500" alt="Image and color detection action">
+</div>
+
+One **Image / Color Detect** action handles both jobs. Capture a normal image or a single pixel/color, choose the exact search area, set match accuracy and check speed, then decide what happens when it is found or times out.
+
+Detection can also click the found location, save an anchor for a later search, limit tries, or jump to another action. The debugger can test a selected detection and show the best match before you run the whole macro.
+
+## What you can build
+
+| Recording and playback | Logic and organization |
+|---|---|
+| Smart, Exact, and Raw mouse recording | Image, pixel/color, OCR, and window detection |
+| Simultaneous held keys and game-friendly input | Parallel paths, normal and dominant jumps |
+| Adjustable speed, loops, delays, and hotkeys | Folders, nested loadouts, locked targets |
+| Mini mode, hide-on-play, always-on-top | Macro chaining and reusable saved macros |
+
+| Monitoring and control | Reliability |
+|---|---|
+| Live debugger with paths, loops, and detection results | Crash recovery and automatic work restoration |
+| Step mode and selected-detection testing | Resolution-aware recorded positions |
+| Discord webhooks and optional bot commands | Background-window detection and restore-window actions |
+| Remote status, screenshots, and playback commands | In-app update checking and update history |
+
+## Advanced: build a custom controller
+
+Create UI is an optional visual playback layer for an existing macro. It does **not** reorder, copy, or replace the macro's actions. It gives the same macro an app-like controller with buttons, loadout choices, pages, images, and live playback information.
 
 ![Create UI demo](readme_images/create-ui-demo.gif)
 
@@ -36,21 +79,16 @@ Create UI is a visual playback layer for the same macro. It does **not** copy, r
 |---|---|
 | ![Create UI designer](readme_images/showcase-create-ui-designer.jpg) | ![Create UI runtime](readme_images/showcase-create-ui-runtime.jpg) |
 
+The designer supports pages, themes, sections, action buttons, nested loadouts, live status fields, custom images/icons, tooltips, templates, multi-select, group dragging, copy/paste, alignment, and snap guides. The normal global Play/Stop hotkey continues to work while the controller is focused, and stopping playback leaves the controller open.
+
+<details>
+<summary><strong>More Create UI examples</strong></summary>
+
 | Nested loadout controls | Live playback information |
 |---|---|
 | ![Create UI modes page](readme_images/showcase-create-ui-modes.jpg) | ![Create UI monitor page](readme_images/showcase-create-ui-monitor.jpg) |
 
-The designer includes:
-
-- named pages with their own icon and accent;
-- sections, labels, action buttons, Start buttons, images, built-in icons, and hover tooltips;
-- live status, current action, active path, elapsed time, and loop information;
-- nested loadouts with choices, buttons, tiles, or dropdown styles;
-- compact templates and full color themes;
-- multi-select, group drag, duplicate, internal copy/paste, alignment, layers, and smart snap guides;
-- custom window presets including compact, wide, and tall layouts.
-
-The normal global Play/Stop hotkey continues to work while the generated controller is focused. Stopping playback leaves the controller open so it can remain the macro's main interface.
+</details>
 
 ## Download
 
@@ -112,7 +150,7 @@ Hotkeys, recording mode, playback speed, appearance, Discord controls, sounds, a
 
 ## Source and safety
 
-Macro Studio is **free to use**, but its source code is private. This public repository contains release builds, release notes, documentation, and issue tracking?not the application source.
+Macro Studio is **free to use**, but its source code is private. This public repository contains release builds, release notes, documentation, and issue tracking—not the application source.
 
 The Windows build is currently not signed with a paid code-signing certificate, so Windows reputation warnings can still appear on a fresh download. The Unblock steps above prevent the downloaded ZIP marker from being copied into the extracted files.
 
