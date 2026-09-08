@@ -1,5 +1,11 @@
 # Changelog
 
+## v15.87
+
+- **The menus in the main window follow the theme too** — the dropdowns off the toolbar (Mouse, Window, Misc, Paths) and the right-click menus were still opening as white system popups against the dark window. They now use the same colours as everything else, with a hover shade dark enough to read the highlighted item.
+
+---
+
 ## v15.86
 
 - **Dialogs follow the dark theme properly** — text boxes, OK/Cancel and other buttons were being drawn in the Windows system colours, so every editor had white input fields and grey buttons sitting on the dark window. They now take their colours from the theme, in both dark and light mode, and the new command list opens dark instead of bright white. Hovering an entry also uses a deeper blue so the text stays readable — it was white on a bright blue before, which washed out whatever you were pointing at
