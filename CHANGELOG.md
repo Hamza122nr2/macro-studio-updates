@@ -1,6 +1,190 @@
 # Changelog
 
-## Unreleased
+## v15.86
+
+- **Dialogs follow the dark theme properly** — text boxes, OK/Cancel and other buttons were being drawn in the Windows system colours, so every editor had white input fields and grey buttons sitting on the dark window. They now take their colours from the theme, in both dark and light mode, and the new command list opens dark instead of bright white. Hovering an entry also uses a deeper blue so the text stays readable — it was white on a bright blue before, which washed out whatever you were pointing at
+
+---
+
+## v15.85
+
+- **Built-in command cheat sheet** — the Run Command editor has a ▾ list of ready-made commands (shut down, restart, lock, force close Roblox or any app, open a folder, flush DNS, delete/copy/make files, popup message). Picking one fills the box, selects the part you need to replace, and ticks "run as administrator" for the ones that need it. Entries that only make sense with the console window shown are marked
+- **Hover any part of a command to see what it does** — pointing at a word in the Command box explains it in a few words: `/r` restart, `/t` seconds to wait first, `/im` by program name. It knows which program you're running, so `/s` reads as "shut down" after `shutdown` but "include subfolders" after `del`
+
+- **Command warnings are per macro now** — a command you use in your own macros no longer counts as approved when it turns up inside someone else's, because approving it there was never the same decision. Each macro asks once and has its own "don't ask again for this macro" tick, and editing a command in a macro you already allowed brings the warning back. Your own macros still never ask: commands you write are stamped by your copy of Macro Studio, and that stamp can't be copied onto a different command or produced by anyone else
+
+---
+
+## v15.84
+
+- **New Run Command action** — run any Windows command from a macro. Set the command, optionally the folder to run it from, and tick "run as administrator" (Windows asks permission each run, unless Macro Studio is already admin). It runs hidden by default and playback does not pause: the command starts and the macro carries straight on to the next step, exactly like every other action. There's an optional "wait until it finishes" tick with a timeout, and Stop always ends the wait
+- **Macros from other people ask before running commands** — opening someone else's macro and pressing play shows exactly which commands it would run on your PC, which ones want administrator, and lets you cancel. Approval is remembered per command, not per macro, so if someone edits a command later it asks again. Commands you typed yourself never ask. Command steps are shown in red in the step list, and a command hidden inside an encrypted folder is counted and flagged without revealing what it is
+- **Run commands from Discord** — `!cmd <command>` runs it on the PC immediately, `!admincmd <command>` runs it elevated. Elevated commands need someone at the PC to accept the Windows prompt, so the bot says so instead of going quiet, and keeps responding either way
+
+- **No more flash when a macro stops** — with always-on-top off, the window is now held at the back for half a second after playback ends instead of being sunk once, so nothing can lift it over the game for a moment on the way back. If always-on-top is on it still comes to the front as before, and anything you do — starting another run, switching always-on-top on, clicking the window — ends the hold immediately, so hammering play/stop never fights you
+
+---
+
+## v15.83
+
+- **New Window Size/State action** — minimize, maximize, restore or close a window mid-macro, or minimize everything at once. It can act on whatever window is focused, or on one you name by title or by app (typing "Roblox" finds the real client). Maximize and Restore bring the window to the front first, so a minimized target comes back in a single step, and Close asks the app to close the way its X button does so "save your work?" prompts still appear
+- **Window switches are recorded again** — a broken internal check meant Macro Studio could no longer tell which window was in front, so switching apps while recording quietly added nothing and macros lost their window steps
+
+---
+
+## v15.82
+
+- **Recorded shortcuts like Alt+P and Alt+F4 now replay** — Windows reports a key differently while a modifier is held, so recordings saved the key under a name playback couldn't send and the shortcut silently did nothing. Keys are now identified by the physical key that was pressed, and old recordings with the broken names play back correctly too
+
+---
+
+## v15.81
+
+- **Discord bot no longer replays old commands** — when Macro Studio launched with Windows, the bot could start before the internet connection was ready, lose its place in the channel, and then run the last 50 messages of chat history as fresh commands. It now waits until it can properly see where the channel ends, and it ignores any message that was sent before the app started
+
+---
+
+## v15.80
+
+- **New Notify action** — show a small message on screen mid-macro ("Wave cleared", "restocking", anything). Set the text, where it appears (any corner, edge, centre or exact position), size and padding, text size, text/background/border colours and opacity, and how long it stays. It carries on without pausing the macro unless you ask it to wait, you can click it to dismiss early, and a Preview button shows exactly how it'll look
+
+---
+
+## v15.79
+
+- **Read text (OCR) can just read and remember** — matching is now optional. By default a Read text step simply reads the area and keeps the text for a later step (like Type Text), and the match/wait/branch settings only appear once you tick "Also match the text". The editor also grows and shrinks to fit instead of cutting itself off
+- **OCR waiting actually retries now** — the countdown started before the first read, and that first read spends a second or two starting the Windows OCR engine, so short waits were used up before it ever looked again. The clock now starts after the first read
+- **Stuck yellow tooltips are gone** — a tooltip could be left stranded on screen forever if the thing it belonged to was rebuilt while you were hovering it (the path tabs rebuild constantly). Fixed for every tooltip in the app, not just that one
+- **Search mode comes back when you untick "search relative to anchor"** — it stayed hidden, leaving no way to choose a search mode again without reopening the action
+- **Anchor search boxes start sensibly** — the default is now a 200×200 box centred on whatever the anchor found, instead of an offset box sitting off to one side
+- **Anchor previews look like every other preview** — a short red flash instead of a blue box that stayed on screen. Before the anchor has ever been set it shows in the middle so you can still judge the size
+- **Image previews show for shared macros** — the editor only looked for the image file on disk, so a macro whose picture is stored inside it (shared or imported) claimed "no image selected". It now falls back to the copy inside the macro
+- **The top bar can't be crowded out** — long status messages are shortened up there (the full text is still in the bottom bar), so the Mini button always stays visible
+
+---
+
+## v15.78
+
+- **Read text (OCR) reworked** — the editor is now laid out in clear steps (where to read, what counts as a match, how long to keep looking, where to go), with a "Show area" button that flashes the read area on screen and a "Read it now" button that tells you what it read *and* whether that would match
+- **OCR can wait for text to appear** — it used to read once and give up, which failed constantly on text that shows up a moment later. Give it a time to keep trying and it re-reads until the text matches or the time runs out, like image detection does
+- **The Debugger shows what OCR actually read** — instead of a meaningless match percentage, it now logs the exact text it saw, so you can tell whether the area is wrong or just the condition
+- **Search mode hides when searching relative to an anchor** — it played no part there and only caused confusion
+- **"Show size" for anchor searches** — draws the search rectangle in the middle of the screen so you can judge its size while editing (its real position depends on the anchor, which isn't known until the macro runs)
+- **Settings opens directly** — it was a dropdown with a single "Settings" item in it
+- **The Mini button can't be squeezed off the toolbar any more**, and the stuck yellow tooltip on path tabs is gone
+- **Type Text's "Which OCR step" row only appears once you tick the OCR option**
+
+---
+
+## v15.77
+
+- **Macros made in a newer version won't silently break in an older one** — saved macros now record the version that made them, and opening one in an older build shows "This macro was made with Macro Studio vX.XX — update to open it" instead of loading it and quietly dropping the features that build doesn't understand. Older macros keep opening normally
+
+- **Pick WHICH anchor a step searches from** — every image step that saves its position as an anchor is now its own named anchor, and later steps choose one from a dropdown instead of everything sharing a single slot. So you can save the red thing and the green thing, then search relative to whichever you want
+- **"If the anchor is missing" branch** — a step searching relative to an anchor that was never set used to silently search the whole screen. You can now send it to the next step, the end, or a specific step instead
+- **See the search area before running** — a "Show area" button draws the anchor-relative rectangle on screen for a couple of seconds, so you can judge the offset visually instead of guessing from four numbers
+- **Type Text picks which OCR step to use** — same idea: choose which Read text step's result to type, or just the most recent one
+
+- **Type Text can type what OCR just read** — tick "Type the text from the last Read text (OCR) step" and it types whatever the most recent OCR step picked up instead of a fixed string, so you can read a code or name off the screen and type it somewhere else
+
+- **Switch paths off for testing** — right-click any path tab (including Main) to disable it. A disabled path is crossed out, dimmed and marked ⊘, and it's skipped completely during playback, so you can isolate one path without deleting anything. Right-click again to re-enable, or "Enable all paths". The setting is saved with the macro
+
+- **Start with Windows** — Settings → Look + startup has a "Start Macro Studio when Windows starts" tick box. It registers the app the same way Windows' own Startup apps list does, so you can also switch it off from Windows settings, and it needs no admin rights. If you move the app to another folder it repairs itself instead of quietly failing
+
+- **Instant actions from Discord** — `!ms click 640 480`, `!ms moveclick 640 480` (moves onto the spot first, for things that only react when the pointer arrives), plus `move`, `key`, `hotkey`, `type` and `scroll`. They run on the PC straight away — nothing gets added to your macro
+- **Smart clicks hover before clicking** — a smart click now travels onto its target before pressing, instead of teleporting and clicking instantly. Lots of buttons only respond once the pointer has actually arrived, so this stops silent misses
+- **You can see and edit what a smart click looks for** — opening a smart click now shows the picture it hunts for, the area it searches, the match % and what to do when it isn't found — all editable, with a **Test** button that searches right now and tells you where it landed (or the best match it got). Editing a click also stops wiping its picture, which it previously did silently
+
+- **Folders show which steps they contain** — a folder row now displays its step range (e.g. `2-6`) in the Duration column, so you can see what a collapsed folder covers without opening it. It's display-only and can't be edited
+
+- **Comments can have pictures now** — add a screenshot to a comment step (grab an area of the screen or pick an image file) and it shows as a thumbnail in the step list, so you can document what a section of a long macro is doing. Comments still do absolutely nothing during playback, and the picture is stored inside the macro so it travels with it when you share it
+
+---
+
+## v15.76
+
+- **The global auto clicker keeps running through macros** — starting or stopping a macro used to switch your auto clicker off, so you couldn't hold down attack while a macro swapped weapons. Clicking you turned on with the hotkey is now yours and stays on the whole time. Macros that control the auto clicker themselves still reset it at the start and end, so those stay predictable
+
+- **Smart recording is actually smart now** — it records what you *meant*, not where your cursor travelled. Every click remembers a small picture of what it landed on, so playback finds that thing and clicks it even if the window moved or the layout shifted; if it can't be found, it clicks the original spot exactly like before, so it's never worse than a normal recording. Smart clicks are marked with 🎯 in the step list
+- **Smart recording skips mouse wandering** — the route your cursor took isn't a step any more (the click already knows where it's going), so recordings are short and readable: one step per thing you actually did, with the time you spent moving kept as that step's delay
+
+- **Pausing while recording no longer drags your cursor on playback** — if you stopped moving the mouse for a moment and then carried on, that pause was stored as part of the movement itself, so playback spent the whole pause slowly hauling the cursor to the next spot: the mouse felt stuck and fought you for control. Pauses are now recorded as real waits between movements, so the cursor sits still during them and moves at the speed you actually moved it
+
+---
+
+## v15.75
+
+- **Detection now works on the monitor the macro actually uses** — image and colour detection only ever looked at the primary monitor. A search area defined on a second screen fell outside it entirely, so the app silently gave up on the region and scanned the whole primary monitor instead — which is why Debugger Mode showed the search area as the entire wrong screen even though the region preview pointed at the right spot. It now grabs the monitor the region lives on (or the whole desktop when a region spans screens or no region is set)
+- **You can select regions and pixels on any monitor** — the region/pixel picker only ever covered the primary screen, so anything on a second monitor was unreachable. The picker now spans the whole desktop, including monitors positioned to the left of or above the main one
+- **Fixed a startup crash on some PCs ("Zugriff verweigert / access denied: profiles")** — the app created its profiles folder next to whatever folder Windows happened to start it in, so launching it from a location it wasn't allowed to write to killed it before the window appeared. The folder now always goes in the app's own folder, falls back to your user folder if that's locked, and can never stop the app from starting
+
+---
+
+## v15.74
+
+- **Continuous Playback in mini actually loops forever now** — ticking it set the macro to infinite, but starting a fresh recording in mini silently reset it back to "play once", so the very next playback stopped after one run. Loop settings now carry over into the new recording, the tick stays in sync with the Loops field in the full window, and it's saved with the macro
+- **Opening mini no longer wipes your loop count** — switching to mini quietly rewrote any loop count that wasn't infinite (a macro set to 50 loops became 1). Mini now leaves the number alone and just reflects it
+- **Mini menu ticks are blue now** — the check marks in the mini Prefs menu (and its hotkey submenus) were almost the same shade as the text, making it hard to tell what was switched on at a glance
+
+---
+
+## v15.73
+
+- **The global auto clicker is now off until you turn it on** — Settings → Global auto clicker has an enable tick box, unticked by default, and its hotkey does nothing until you tick it, so a stray F7 can't start clicking while you're doing something else. Unticking it also stops it if it's currently clicking. The Auto clicker action inside macros is unaffected and keeps working either way
+
+- **The pause before you stop recording is finally kept** — recording ended the moment you hit the hotkey, so the time between your last click/key and stopping was thrown away. That broke timing macros: recording "press a key, wait 5 seconds" and looping it replayed with no gap at all. That final pause is now saved as a Wait step, so looped timing macros keep their rhythm (delete the last step if you don't want it)
+
+---
+
+## v15.72
+
+- **Window auto-adjust now keeps every linked action on one consistent aspect-preserving map** — automatic links use proportional fit when the target window changes shape, recorded mouse paths now use the same centred origin as clicks and detection regions, and the red region preview shows the exact searched rectangle without misleading padding
+
+---
+
+## v15.71
+
+- **Updates restart faster and no longer fail on locked files** — the updater waits for the exact old Macro Studio process instead of guessing with a fixed sleep, uses faster ZIP extraction and retrying Robocopy replacement, relaunches before slow temporary cleanup, preserves unsaved recovery, and restarts the existing app even if an update fails
+- **Window auto-adjust restores its original coordinate behavior** — v15.70's automatic fill/crop default is migrated back to the established stretch mapping so mouse paths and regions follow window width and height as before; proportional fit/fill remain available only when explicitly selected
+
+---
+
+## v15.70
+
+- **Window-linked Image Detect scales the image too** — resized target windows now resize the working detection template together with its search region, Debugger Test Detection shows the actual scaled template, 1×1 color captures remain true pixels, and resized templates are cached instead of rebuilt on every check
+- **Window auto-adjust remains correct when reapplied** — resizing a linked window and choosing Auto-adjust again no longer replaces the original reference size while leaving old coordinates behind; relinking the same target is harmless, and changing targets safely rebases coordinates first
+- **Window links handle aspect-ratio changes properly** — choose proportional fill/crop, proportional fit/letterbox, or stretch from the selected actions' right-click menu; proportional fill/crop is the default for new and existing links so game viewports keep their geometry instead of being distorted
+
+---
+
+## v15.69
+
+- **Window auto-adjust now applies everywhere** — linked image/color search regions, mouse points, paths, drags, and anchor previews now move and resize correctly in the on-screen preview and debugger test as well as during playback; resolution conversion also preserves window links
+
+---
+
+## v15.68
+
+- **Actions can auto-adjust to a chosen window** — multi-select coordinate or region actions, right-click `Auto-adjust to window`, and they follow that app's current position and size during playback; linked rows are visibly tinted and the link can be removed at any time
+
+---
+
+## v15.67
+
+- **Image/Color Detect now obeys Check every across jumps** — successful self-jumps and loop re-entry can no longer bypass the polling interval and waste CPU; a timeout shorter than the interval performs one check, while non-multiple timeouts end at their exact After ms instead of rounding up
+
+- **Auto Clicker reliability and safety** — current-cursor clicking no longer forces the mouse position or shakes the pointer, Start/Stop modes stay deterministic across loops and jumps, deliberate Toggle actions remain available, parallel paths cannot race, anchor selection is one click-or-Space control, F7 explains itself before its first start, and the playback badge shows when auto-clicking is active
+
+---
+
+## v15.66
+
+- **Action Reference shows every action and keeps Close visible** — fixed the Misc tab stopping at Create UI and appearing mostly empty, ordered Misc like the real toolbar, and moved Close into a fixed footer that never requires scrolling
+- **Built-in Auto Clicker action and global hotkey** — toggle low-CPU automatic clicking from a macro action or the configurable F7 hotkey, use the current cursor or a fixed anchor, and optionally restrict clicks to a selected region
+
+---
+
+## v15.65
 
 - **Create UI is much faster to design** ? added ready-made controller/dashboard/monitor templates, full color themes, multi-select and group dragging, duplicate, clipboard-free copy/paste, alignment buttons, smart snapping guides, select-all, and multi-delete
 - **More ways to make generated controllers look polished** ? pages can have their own icon and accent, controls can use built-in icons and hover tooltips, and loadouts gain a compact tile style alongside choices, buttons, and dropdowns
