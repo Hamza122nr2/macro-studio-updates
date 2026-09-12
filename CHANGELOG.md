@@ -1,5 +1,11 @@
 # Changelog
 
+## v15.89
+
+- **Tell two windows of the same app apart** — capturing a window only remembered its title and app name, so two Roblox clients looked identical and whichever one Windows found first always won. The countdown now has a "Capture this exact window" tick that locks onto the one you switched to, for both Change Window and window auto-adjust. It holds only while that window stays open — a handle means nothing once it's closed — and when it does close the step falls back to matching by title as before, rather than doing nothing
+
+---
+
 ## v15.88
 
 - **Image detection works when Macro Studio starts with Windows** — macros store their template pictures by a short path, and that path was being looked up relative to wherever the app happened to be started from. Launched by Windows at sign-in that is a system folder, so the picture was never found: detection failed and the editor showed no preview. Pictures are now located by where they actually live, and newly captured ones are saved to a fixed folder instead of whichever folder the app was started from
