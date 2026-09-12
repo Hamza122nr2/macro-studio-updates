@@ -1,5 +1,11 @@
 # Changelog
 
+## v15.90
+
+- **Holding a click no longer spins the camera in games** — actions set to "relative to mouse" with no offset mean "right here", but they still nudged the pointer to where it already was before pressing. A game that captures the mouse (Minecraft, Roblox in first person) re-centres the pointer every frame and reads any movement as a camera turn, so that pointless nudge sent the view spinning. Mouse hold, click, press, release and scroll now press exactly where the pointer is without moving it; anything aimed at a real position still moves as before
+
+---
+
 ## v15.89
 
 - **Tell two windows of the same app apart** — capturing a window only remembered its title and app name, so two Roblox clients looked identical and whichever one Windows found first always won. The countdown now has a "Capture this exact window" tick that locks onto the one you switched to, for both Change Window and window auto-adjust. It holds only while that window stays open — a handle means nothing once it's closed — and when it does close the step falls back to matching by title as before, rather than doing nothing
