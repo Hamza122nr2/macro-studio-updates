@@ -1,9 +1,14 @@
 # Changelog
 
+## v15.88
+
+- **Image detection works when Macro Studio starts with Windows** — macros store their template pictures by a short path, and that path was being looked up relative to wherever the app happened to be started from. Launched by Windows at sign-in that is a system folder, so the picture was never found: detection failed and the editor showed no preview. Pictures are now located by where they actually live, and newly captured ones are saved to a fixed folder instead of whichever folder the app was started from
+
+---
+
 ## v15.87
 
 - **The menus in the main window follow the theme too** — the dropdowns off the toolbar (Mouse, Window, Misc, Paths) and the right-click menus were still opening as white system popups against the dark window. They now use the same colours as everything else, with a hover shade dark enough to read the highlighted item.
-
 ---
 
 ## v15.86
