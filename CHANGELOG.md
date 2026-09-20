@@ -1,5 +1,11 @@
 # Changelog
 
+## v15.92
+
+- **Moving Macro Studio to your user folder no longer feels like it vanished** — accepting the setup offer used to empty the folder you extracted it to and leave nothing behind. It now drops a short "Macro Studio - moved.txt" next to where that folder was, saying exactly where it went, why, how to open it, and how to pin it to the taskbar or Start. Explorer also opens at the new location with the app selected
+
+---
+
 ## v15.91
 
 - **Webhook messages arrive as Macro Studio** — messages sent through a Discord webhook now carry the Macro Studio name and icon and a blue bar down the side, instead of whatever name and blank picture the webhook happened to be created with. Nothing to set up: it works on webhooks you already made. Screenshots sit inside the same coloured block. Mentions still notify: a ping only works from the message line and not from inside a coloured block, so any `<@you>`, `@everyone` or `@here` is sent on that line and the rest of your text goes in the block. If you'd rather a message used your webhook's own name and picture, tick "Post with the webhook's own name and picture" on that action
