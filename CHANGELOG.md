@@ -1,5 +1,11 @@
 # Changelog
 
+## v15.93
+
+- **Search box in the menu bar** — one place to find and do anything, in the gap next to the undo/redo arrows. Results appear as you type and every one of them does something: a step jumps to and selects it, an action adds it, a command runs it, a saved macro opens it. Steps match on their content too, so typing part of a command, a key or a title finds the step using it. It also knows related words and what lives inside Settings, so "webhook" finds Send Discord Message, "cps" finds the Auto Clicker, and "discord bot", "finish sound" or "start with windows" open Settings already on the right page — and when nothing matches it says so instead of showing an empty box. Arrow keys move, Enter runs, Escape closes, and Ctrl+F (or Ctrl+K) jumps straight to it — except while a dialog is open, so it can't steal what you're typing
+
+---
+
 ## v15.92
 
 - **Moving Macro Studio to your user folder no longer feels like it vanished** — accepting the setup offer used to empty the folder you extracted it to and leave nothing behind. It now drops a short "Macro Studio - moved.txt" next to where that folder was, saying exactly where it went, why, how to open it, and how to pin it to the taskbar or Start. Explorer also opens at the new location with the app selected
