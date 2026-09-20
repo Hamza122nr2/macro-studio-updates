@@ -1,5 +1,11 @@
 # Changelog
 
+## v15.91
+
+- **Webhook messages arrive as Macro Studio** — messages sent through a Discord webhook now carry the Macro Studio name and icon and a blue bar down the side, instead of whatever name and blank picture the webhook happened to be created with. Nothing to set up: it works on webhooks you already made. Screenshots sit inside the same coloured block. Mentions still notify: a ping only works from the message line and not from inside a coloured block, so any `<@you>`, `@everyone` or `@here` is sent on that line and the rest of your text goes in the block. If you'd rather a message used your webhook's own name and picture, tick "Post with the webhook's own name and picture" on that action
+
+---
+
 ## v15.90
 
 - **Holding a click no longer spins the camera in games** — actions set to "relative to mouse" with no offset mean "right here", but they still nudged the pointer to where it already was before pressing. A game that captures the mouse (Minecraft, Roblox in first person) re-centres the pointer every frame and reads any movement as a camera turn, so that pointless nudge sent the view spinning. Mouse hold, click, press, release and scroll now press exactly where the pointer is without moving it; anything aimed at a real position still moves as before
