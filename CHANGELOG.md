@@ -1,5 +1,15 @@
 # Changelog
 
+## v15.94
+
+- **Opening a saved macro from search asks about unsaved work** — picking a macro in the search box loaded it straight away and threw away whatever you had open. It now asks to save first, exactly like opening one any other way
+- **Smart targets come from smart recording only** — the Mouse Click editor no longer offers to attach a picture by hand; that panel was complication for its own sake. Clicks that were smart-recorded still show it and stay fully editable — match %, what to do when it isn't found, the area to search in, Test, and Remove
+- **Editing a Mouse Down or Mouse Up no longer turns it into a Click** — the editor always opened on "click", so saving an existing press or release silently converted it. It now opens on what the action actually is
+- **Settings pages are searchable** — typing "discord bot", "finish sound" or "start with windows" opens Settings already on the right page
+- **Action Reference brought up to date** — Send Discord Message now documents posting as Macro Studio and the option to use the webhook's own name, Window Change covers capturing one exact window, and the search box has its own entry
+
+---
+
 ## v15.93
 
 - **Search box in the menu bar** — one place to find and do anything, in the gap next to the undo/redo arrows. Results appear as you type and every one of them does something: a step jumps to and selects it, an action adds it, a command runs it, a saved macro opens it. Steps match on their content too, so typing part of a command, a key or a title finds the step using it. It also knows related words and what lives inside Settings, so "webhook" finds Send Discord Message, "cps" finds the Auto Clicker, and "discord bot", "finish sound" or "start with windows" open Settings already on the right page — and when nothing matches it says so instead of showing an empty box. Arrow keys move, Enter runs, Escape closes, and Ctrl+F (or Ctrl+K) jumps straight to it — except while a dialog is open, so it can't steal what you're typing
