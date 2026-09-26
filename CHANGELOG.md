@@ -1,5 +1,12 @@
 # Changelog
 
+## v15.95
+
+- **Double-click a Change Window step to re-capture it** — it used to just say the step was recorded automatically and couldn't be changed. Now it reopens the same countdown, so you switch to the window you want and that step points at it, keeping its delay. Cancelling, or closing the countdown with the X, leaves the step exactly as it was and never adds a second one
+- **The capture countdown always closes itself** — if it couldn't read the window title it stayed on screen holding the app, which looked like a freeze
+
+---
+
 ## v15.94
 
 - **Opening a saved macro from search asks about unsaved work** — picking a macro in the search box loaded it straight away and threw away whatever you had open. It now asks to save first, exactly like opening one any other way
