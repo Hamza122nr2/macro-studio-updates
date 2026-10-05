@@ -1,5 +1,15 @@
 # Changelog
 
+## v15.96
+
+- **Delete and save from Discord** — `!delete 3` removes a step (`!delete 2.4` for step 4 of path 2) and `!undo` brings it back, so a macro built remotely can be corrected, not just added to. `!save` stores it over the file it came from, `!save <name>` as a new macro — it never overwrites a different macro, and neither works while a macro is playing
+
+- **Macros load when Macro Studio starts with Windows** — opening a macro at sign-in failed with an error, because its pictures were unpacked into a folder looked up relative to wherever the app was started from, which at sign-in is a system folder. They now always go into the app's own assets folder
+- **Type Text at speed 0 works in games** — instant typing sent the text in a form games like Roblox ignore, and a new line never pressed Enter, so nothing appeared. It now pastes the text instead, and whatever was on your clipboard before (text, an image or copied files) is put back afterwards
+- **Run Command can run PowerShell** — commands always went through the old Command Prompt, so PowerShell scripts silently did nothing. The editor now has a "Run with" choice (cmd or PowerShell), and from Discord `!ps <script>` / `!adminps <script>` run PowerShell the same way `!cmd` runs cmd. Existing steps keep using cmd
+
+---
+
 ## v15.95
 
 - **Double-click a Change Window step to re-capture it** — it used to just say the step was recorded automatically and couldn't be changed. Now it reopens the same countdown, so you switch to the window you want and that step points at it, keeping its delay. Cancelling, or closing the countdown with the X, leaves the step exactly as it was and never adds a second one
