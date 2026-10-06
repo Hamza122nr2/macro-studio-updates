@@ -1,5 +1,11 @@
 # Changelog
 
+## v15.97
+
+- **Click things from Discord without coordinates** — `!targets` sends a screenshot with a number on every piece of readable text on screen, and `!click 7` clicks number 7, then sends back what the screen looks like afterwards. `!targets play` numbers only text containing "play", so a busy screen doesn't turn into hundreds of numbers. A click is refused instead of guessing if that text has moved or gone since the screenshot, and numbers expire after 90 seconds. `!rclick 7` and `!dclick 7` work too. Icons without any text can't be numbered — `!shot grid` still covers those
+
+---
+
 ## v15.96
 
 - **Delete and save from Discord** — `!delete 3` removes a step (`!delete 2.4` for step 4 of path 2) and `!undo` brings it back, so a macro built remotely can be corrected, not just added to. `!save` stores it over the file it came from, `!save <name>` as a new macro — it never overwrites a different macro, and neither works while a macro is playing
