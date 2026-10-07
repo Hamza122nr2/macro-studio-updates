@@ -1,5 +1,22 @@
 # Changelog
 
+## v15.98
+
+- **Typing a delay straight into the step list is safer and quicker** — double-clicking the Delay or Duration column and typing anything that wasn't a plain number (a typo, or "2s") silently set it to 0. Unreadable input now keeps the old value, and you can type seconds (`2s`, `1,5s`), milliseconds (`250ms`), or `inf` for a delay or wait that should park until a jump wakes it
+
+- **Renaming a macro and saving keeps the original** — open a saved macro, change its name and press Save (Ctrl+S), and it used to overwrite the original file with the renamed copy. It now saves the renamed macro as its own new file and leaves the original as it was. If a macro with the new name already exists, it asks before replacing it
+
+- **Right-click Copy, Paste and Cut work** — in the step list's right-click menu, Copy and Paste silently did nothing, and Cut deleted the selected steps without copying them first, so they were gone. All three now do exactly what Ctrl+C, Ctrl+V and Ctrl+X do
+- **Deleting a path no longer scrambles the other paths' loop counts** — each path's loop count is stored by position, and deleting a path didn't remove its count, so every path after it picked up its neighbour's — a path set to loop forever could quietly start looping once. Deleting a path can now also be undone, and undo/redo bring back path tabs and switched-off paths correctly
+
+- **Dropdowns are dark in dark mode** — every dropdown in every editor (button, action, path, run-with and so on) still had a light grey field and arrow button, left over from the default theme underneath. They now follow the theme, as does the list that drops down from them
+- **Colour detect no longer freezes on a colour that stays** — after finding its colour, it waits for the colour to go away so one note isn't hit twice, but there was no limit: if the colour simply stayed on screen (a button, a background), the macro sat on that step forever. It now moves on after 5 seconds; a colour that does leave is still waited for exactly as before. Image detect's key-press option had the same wait and the same fix
+- **A mouse button or key can't get stuck held down** — Mouse Hold pressed the button before reading how long to hold it, so a damaged value raised an error in between and never let go. Holds and key presses now always release, whatever happens in the middle
+- **Damaged or hand-edited coordinates no longer stop a macro** — a coordinate like "12.5" or an empty one made playback of that path crash; it is now read as a number, or 0 if it isn't one
+- **Two background errors fixed** — scrolling over a dropdown and resizing an editor could each throw an error in the background
+
+---
+
 ## v15.97
 
 - **Click things from Discord without coordinates** — `!targets` sends a screenshot with a number on every piece of readable text on screen, and `!click 7` clicks number 7, then sends back what the screen looks like afterwards. `!targets play` numbers only text containing "play", so a busy screen doesn't turn into hundreds of numbers. A click is refused instead of guessing if that text has moved or gone since the screenshot, and numbers expire after 90 seconds. `!rclick 7` and `!dclick 7` work too. Icons without any text can't be numbered — `!shot grid` still covers those
