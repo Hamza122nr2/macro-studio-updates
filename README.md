@@ -92,12 +92,17 @@ The designer supports pages, themes, sections, action buttons, nested loadouts, 
 
 ## Download
 
-1. Open the [latest release](https://github.com/Hamza122nr2/macro-studio-updates/releases/latest).
-2. Download the Windows ZIP.
-3. Follow the one-time **Unblock before extracting** steps below.
-4. Open the extracted folder and run `MacroStudio.exe`.
+1. **[Download MacroStudio-Setup.exe](https://github.com/Hamza122nr2/macro-studio-updates/releases/latest/download/MacroStudio-Setup.exe)** (always the newest version).
+2. Run it.
+3. Click through the setup: pick the standard folder or your own, choose shortcuts, install.
 
-Macro Studio is portable: there is no installer. Updates can be applied from inside the app.
+Already have Macro Studio? Run the new setup anyway: it finds your copy and offers to **update it** in place (your macros and settings stay) or **open its folder**. Updates can also be applied from inside the app.
+
+Windows may show "Windows protected your PC" for a new download because the app isn't signed with a paid certificate. Click **More info → Run anyway**.
+
+### Portable ZIP (no installer)
+
+Prefer a portable copy? Download the Windows ZIP instead, follow the one-time **Unblock before extracting** steps below, then run `MacroStudio.exe` from the extracted folder.
 
 ## Important: unblock the ZIP before extracting
 
