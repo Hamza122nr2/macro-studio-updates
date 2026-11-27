@@ -1,5 +1,33 @@
 # Changelog
 
+## v15.99
+
+- **No more flickering when the app starts** — a small loading card with a progress bar appears straight away while Macro Studio builds out of sight behind it; when it's ready the card fades out as the app fades in, centred on your screen
+- **Editors open smoothly, in the right place** — opening an editor (Image Detect, Colour Detect and every other one) made it flash several times and pop up in the corner before jumping to the app. Each one now appears once, already centred over Macro Studio, fading in as it settles into place, and fades out when closed. Every other Macro Studio window fades in too, and title bars are dark in dark mode
+- **Coordinates printed on the Discord grid** — `!shot grid` now writes `x|y` at every line crossing, so you can read a spot straight off the picture. Type it exactly as shown: `!click 300|200`, `!zoom 300|200`, `!add click 300|200`
+- **A proper installer** — new downloads now come as MacroStudio-Setup.exe: a dark, Macro Studio-styled setup with a welcome page, where to install (the standard place or your own folder), a desktop shortcut and start-with-Windows choice, then install and open. If Macro Studio is already on the PC it says so and offers to update it in place or open its folder. It adds Macro Studio to Start and Windows' uninstall list and never touches your Macro Actions folder. Updating from inside the app works exactly as before
+- **Captured an image? Search just around it** — after capturing an image in Image Detect, a blue box shows a noticeably bigger area around it with "Search only inside the blue box?". OK switches the search to that area (much less CPU, and it can't match the same picture somewhere else); ✕ keeps searching the whole screen. The editor stays open either way
+- **Every detect action works the same way** — Read Text and Detect Window now have Image Detect's layout and options: When found (with Go to a specific step and Lock), Search timing (No timeout, Check every, After), Limit tries and Delay before. Detect Window can now keep checking until the window shows up instead of checking once, and Colour Detect uses the same words and order. Existing steps behave exactly as before
+- **Jump and Path Jump take the same step format as everything else** — one "Go to step" field: `5` for step 5 of Main, `2.3` for Path 2 step 3 (instead of a Main / Path 2 picker). Path Jump also gets Limit and Lock now
+- **Region + all windows search stays on** — re-drawing the search area of an Image Detect set to "region_all" quietly switched it back to plain "region", so windows behind others stopped being searched. Search areas also now follow a different screen resolution, like clicks already did
+- **Saved "Limit tries" step targets keep their Lock** — reopening an Image or Colour Detect showed a tries target as a bare number and dropped its Lock on the next save
+- **Path tabs move smoothly** — adding a path slides the tab row open, switching paths blends the highlight across instead of rebuilding every tab, and deleting the last extra path slides the row shut (it used to leave an empty band behind)
+- **Windows open where they belong** — Settings, What's New, Mini and every other window now appear straight at their final spot (centred over the app) instead of flashing in the top-left corner first. The "press SPACE" capture hint is now a small bar at the top of the screen, and when Relative is ticked it has an "OK, keep relative" button that keeps it and leaves the editor open
+- **Sections slide open** — ticking options that reveal more settings (Also match the text, Limit tries, No timeout, a specific step) now fades the new controls in and slides the window to its new size
+- **Mini's Prefs menu no longer jitters** — it was rebuilt from scratch every time it opened
+- **Cleaner step list** — the list lost its bright outline and old-style scrollbars (now slim and flat), toolbar buttons fade softly on hover and dip when clicked, and an empty macro shows a quiet "No steps yet" hint
+- **Random Jump has a Limit** — like Jump: after jumping that many times it carries on to the next step instead
+- **Colour Detect's editor opens again** — it crashed while opening because part of its Limit tries section was missing. It now has the same "Lock to this action" tick as Image Detect
+- **Much lighter on your CPU while idle** — the interface kept checking Windows' light/dark theme 33 times a second and every window's screen scaling 10 times a second, even while minimised. It now checks every couple of seconds; idle CPU use dropped about 15×
+- **Image Detect with a search region uses far less CPU** — every check grabbed and converted your whole screen just to look at a small box. It now copies only that box: the same pixels, about 50× less work per check. Full-screen searches are unchanged
+- **The Discord bot uses less CPU** — it opened a brand-new secure connection to Discord every 2 seconds; it now keeps one open, about a third of the work per check
+- **!targets finds more text, faster** — it now also cuts out every word-shaped spot on screen and reads them one by one, which catches words on coloured buttons and busy backgrounds it used to skip. It reads more words than before in about half the time and half the CPU. Very decorative game fonts can still be missed
+- **Double-click a macro file to open it** — `.macstudio` files now open in Macro Studio straight from Explorer (into the window that's already open, if it is). You get the usual unsaved-changes question first, and if the file isn't in your Macro Actions folder you're offered to move it there. Both can be switched off in Settings → General → Macro files
+- **Unsaved work in Path 2+ is no longer thrown away** — opening another macro or closing the app only asked to save if Path 1 had steps, so a macro built in other paths was discarded without a word. And choosing Save, then cancelling the save window, used to discard your changes anyway; it now keeps them
+- **Crash recovery protects work in every path** — if a macro's steps were all in Path 2 or later, a crash lost them, because the recovery copy only counted Path 1. Unchanged macros are also no longer re-saved to the recovery copy every 8 seconds
+
+---
+
 ## v15.98
 
 - **Typing a delay straight into the step list is safer and quicker** — double-clicking the Delay or Duration column and typing anything that wasn't a plain number (a typo, or "2s") silently set it to 0. Unreadable input now keeps the old value, and you can type seconds (`2s`, `1,5s`), milliseconds (`250ms`), or `inf` for a delay or wait that should park until a jump wakes it
