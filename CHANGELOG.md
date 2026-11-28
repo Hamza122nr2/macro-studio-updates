@@ -1,5 +1,10 @@
 # Changelog
 
+## v16.00
+
+- **License terms** — Macro Studio now comes with a license (LICENSE.txt, also shown in the installer and the About window): free to use, but not to resell, re-upload, modify or reverse engineer. Macros you make are yours
+---
+
 ## v15.99
 
 - **No more flickering when the app starts** — a small loading card with a progress bar appears straight away while Macro Studio builds out of sight behind it; when it's ready the card fades out as the app fades in, centred on your screen
