@@ -1,5 +1,20 @@
 # Changelog
 
+## v16.01
+
+- **Paste, add and record always go right after the selected step** — with a folder selected, pasting or adding went all the way to the bottom of the list; and pasting twice put the second copy above the first. Both now land right after what's selected (a selected folder means after that folder), what you paste becomes the selection, and recording also inserts after the selected step instead of always at the end. In Mini, which can't select anything, steps always go to the end of the Main path
+- **More motion** — steps you add, paste, duplicate or bring back with undo light up briefly and fade to normal so you see where they landed; a folder's steps fade in when you open it; Settings pages slide softly into place when you switch tabs; and tooltips are dark, themed and fade in instead of popping up as yellow boxes
+- **Smoother Mini window** — switching between Mini and the full editor now cross-fades instead of one window vanishing and the other popping up; Mini's buttons glide into their hover colour and dip when clicked, like the full editor's toolbar; Rec no longer turns blue after your first recording; and the Rec/Play icons stop redrawing twice a second while recording or playing
+- **Every editor uses the same words** — Mouse, Key, Wait, Type text, Scroll, Drag, Change/Restore window, Run command and the rest now end with the same "Delay before … ms" row as the detect editors, and the long explanation paragraphs are gone (a short grey hint stays only where a field needs one, like "0 = tap")
+- **Editing a Change window step no longer breaks it** — typing a window name in its editor saved the step without the window, so it stopped switching windows. It now keeps the window, and its "Wait after" time is a real wait after switching
+- **Startup popups come one at a time** — What's New, "Recover unsaved work?", the install and shortcut offers and the update prompt could open on top of each other and glitch. Now each waits until the one before it is closed
+- **The license is shown after updating too** — until now only the installer showed it, so anyone who updated from inside the app never saw it. It now appears once on the first start after an update (and again only if the terms change). Declining closes Macro Studio
+- **Search shows what leads to a step** — type a step number in the search box (`5`, or `3.2` for Path 3 step 2) and you get that step, then every step that goes to it: Jumps, Path Jumps, Random Jumps, and Detects whose "found", "not found" or "Limit tries" go there. Click one to jump straight to it
+- **Click by name from Discord** — `!click Play` clicks the text on screen that says Play, no coordinates or numbers to read. If several things say it, you get a picture with just those numbered and pick one with `!click 2`. `!rclick` and `!dclick` work the same way, and `!click 640 480` / `!click 300|200` still click a spot
+- **Restore window's wait is where it says** — its "Delay after" box actually set a wait *before* switching back. It now has both: Wait after (default 250 ms) and Delay before. Existing steps behave exactly as before
+
+---
+
 ## v16.00
 
 - **License terms** — Macro Studio now comes with a license (LICENSE.txt, also shown in the installer and the About window): free to use, but not to resell, re-upload, modify or reverse engineer. Macros you make are yours
